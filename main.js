@@ -1,11 +1,11 @@
 const express = require("express");
 const fs = require("fs");
 const app = express();
-
 const net = require("net")
 const { getFASHEDANYUAN } = require("./router/fashedanyuan");
 const { getMUBIAO } = require("./router/mubiaodanyuan");
 const { getDANDAO } = require("./router/dandao");
+
 
 // 发射单元文件
 let fashedanyuanFilePath = "./mock/fashedanyuan.csv";
@@ -22,7 +22,7 @@ let fileList = fs.readdirSync("./mock", (err) => {
 // 读取发射单元文件
 let fileCont = fs.readFileSync(fashedanyuanFilePath, "utf-8");
 
-// 获取发射单元
+// 获取发射单元 s s
 app.get("/fashedanyuan", async function (req, res) {
 	let result = await getFASHEDANYUAN(fashedanyuanFilePath);
 	res.send(result);
@@ -66,5 +66,7 @@ app.get("/", async function (req, res) {
 app.listen(3000);
 
 
+// 我是main 分支
+console.log('main');
 // 我是kk 分支
 console.log('kk');
